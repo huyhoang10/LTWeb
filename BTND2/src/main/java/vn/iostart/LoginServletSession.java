@@ -2,23 +2,25 @@ package vn.iostart;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class LoginServletSession
  */
-@WebServlet(urlPatterns= "/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/loginSession")
+public class LoginServletSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public LoginServletSession() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,23 +36,18 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html");
-		//lấy dữ liệu từ tham số của form
-		String user = req.getParameter("username");
-		String pass = req.getParameter("password");
-		if(user.equals("hoang") && pass.equals("123"))
-		{
-		Cookie cookie = new Cookie("username", user); //khởi tạo cookie
-		//thiết lập thời gian tồn tại 30s của cookie
-		cookie.setMaxAge(30);
-		//thêm cookie vào response
-		resp.addCookie(cookie);
-		//chuyển sang trang HelloServlet
-		resp.sendRedirect("/BTND2/hello");
-		}else {
-		//chuyển sang trang LoginServlet
-		resp.sendRedirect("/BTND2/login");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		if (username.equals("hoangnh")&& password.equals("123")) {
+		out.print("Chao mung ban, " + username);
+		HttpSession session = request.getSession();
+		session.setAttribute("name", username);
+		} else {
+		out.print("Tai khoan hoac mat khau khong chinh xac");
+		request.getRequestDispatcher("loginSession.html").include(request,
+		response);
 		}
 	}
 
