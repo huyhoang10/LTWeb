@@ -2,6 +2,7 @@ package vn.iostar.Models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @SuppressWarnings("serial")
 public class User implements Serializable {
@@ -15,7 +16,23 @@ public class User implements Serializable {
     private int roleid;
     private String phone;
     private Date createdDate;
+    private String token;
+    private Timestamp expiry_token;
+    public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
+	public Timestamp getExpiry_token() {
+		return expiry_token;
+	}
 
+	public void setExpiry_token(Timestamp timestamp) {
+		// TODO Auto-generated method stub
+		this.expiry_token = timestamp;
+	}
     // Getters & Setters
     public int getId() {
         return id;
@@ -111,4 +128,6 @@ public class User implements Serializable {
     public User() {
         super();
     }
+	
+	
 }

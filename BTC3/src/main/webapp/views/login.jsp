@@ -75,7 +75,7 @@
                     <input type="checkbox" class="form-check-input" id="rememberMe">
                     <label class="form-check-label" for="rememberMe">Nhớ tôi</label>
                 </div>
-                <a href="#">Quên mật khẩu?</a>
+                <a href="forgetPassword.jsp">Quên mật khẩu?</a>
             </div>
 
             <!-- Submit -->

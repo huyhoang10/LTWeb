@@ -3,6 +3,8 @@ package vn.iostar.service.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 import vn.iostar.DAO.UserDao;
 import vn.iostar.DAO.impl.UserDaoImpl;
@@ -79,5 +81,29 @@ public class UserServiceImpl implements UserService {
     @Override
     public void insert(User user) {
         userDao.insert(user);
+    }
+    
+    @Override
+    public String setToken(String email) {
+    	// 2. Sinh token ngẫu nhiên
+        String token = UUID.randomUUID().toString();
+
+        // 3. Đặt thời gian hết hạn token (VD: 30 phút sau hiện tại)
+        LocalDateTime expiryTime = LocalDateTime.now().plusMinutes(30);
+
+        // 4. Lưu token + expiry vào DB
+        userDao.updateResetToken(email, token, expiryTime);
+
+    	return token;
+    }
+    
+    @Override
+    public User findByToken(String token) {
+    	return userDao.findByToken(token);
+    }
+    
+    @Override
+    public void setPassword(String username,String password) {
+    	userDao.setPassword(username, password);
     }
 }
