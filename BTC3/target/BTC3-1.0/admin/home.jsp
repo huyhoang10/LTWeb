@@ -25,6 +25,7 @@ if (user == null || user.getRoleid() != 1) {
 		<%=user.getUserName()%></h1>
 	<ul>
 		<li><a href="/admin/manageUsers">Quản lý người dùng</a></li>
+		<li><a href="/BTC3/admin/category/list">Quản lý danh mục</a></li>
 		<li><a href="<c:url value='/logout' />">Đăng xuất</a></li>
 	</ul>
 </body>

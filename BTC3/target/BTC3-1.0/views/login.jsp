@@ -50,7 +50,7 @@
             <div class="alert alert-danger">${alert}</div>
         </c:if>
 
-        <form action="login" method="post">
+        <form action="${pageContext.request.contextPath}/login" method="post">
             <!-- Username -->
             <div class="input-group login-input">
                 <div class="input-group-prepend">
@@ -75,7 +75,7 @@
                     <input type="checkbox" class="form-check-input" id="rememberMe">
                     <label class="form-check-label" for="rememberMe">Nhớ tôi</label>
                 </div>
-                <a href="#">Quên mật khẩu?</a>
+                <a href="forgetPassword.jsp">Quên mật khẩu?</a>
             </div>
 
             <!-- Submit -->
