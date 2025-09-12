@@ -86,6 +86,7 @@
                   <!-- Hình ảnh -->
                   <td class="text-center">
                     <c:url value="/image/${cate.icon}" var="imgUrl"/>
+                    <p>${imgUrl}</p>
                     <img src="${imgUrl}" alt="${cate.catename}" class="img-thumbnail table-img"/>
                   </td>
 

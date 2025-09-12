@@ -69,7 +69,7 @@ public class LoginController extends HttpServlet implements Servlet {
         if (user != null) {
             HttpSession session = req.getSession(true);
             session.setAttribute("account", user);
-
+            session.setAttribute("RoleId", user.getRoleid());
             if (isRememberMe) {
                 saveRemeberMe(resp, username);
             }
