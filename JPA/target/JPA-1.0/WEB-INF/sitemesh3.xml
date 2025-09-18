@@ -1,0 +1,4 @@
+<sitemesh>
+    <!-- Exclude everything -->
+    <mapping path="/*" exclude="true"/>
+</sitemesh>
