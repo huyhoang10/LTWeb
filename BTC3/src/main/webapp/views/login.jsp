@@ -72,10 +72,10 @@
             <!-- Remember me + Forgot -->
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Nhớ tôi</label>
+                    <input type="checkbox" name="remember" class="form-check-input" id="rememberMe">
+					<label class="form-check-label" for="rememberMe">Nhớ tôi</label>
                 </div>
-                <a href="forgetPassword.jsp">Quên mật khẩu?</a>
+                <a href="${pageContext.request.contextPath}/views/forgetPassword.jsp">Quên mật khẩu?</a>
             </div>
 
             <!-- Submit -->
