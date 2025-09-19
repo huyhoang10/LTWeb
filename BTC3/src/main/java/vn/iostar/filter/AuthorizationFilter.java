@@ -43,6 +43,7 @@ public class AuthorizationFilter implements Filter {
                 || uri.startsWith("/public") 
                 || uri.endsWith("forgetPassword.jsp")
                 || uri.endsWith("resetPassword.jsp")
+                || uri.endsWith("register.jsp")
                 || uri.endsWith(".css") 
                 || uri.endsWith(".js") 
                 || uri.endsWith(".png") 
